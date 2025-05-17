@@ -1,10 +1,10 @@
 import React from 'react';
 
-
-export const ProductDetails = () => {
+export const Footer = () => {
     return (
         <div>
-            ProductDetails
+            <hr/>
+            Footer
         </div>
     );
 };

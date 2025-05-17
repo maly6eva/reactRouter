@@ -7,52 +7,81 @@ import {NotFound} from "./pages/NotFound.jsx";
 import {ProductDetails} from "./pages/ProductDetails.jsx";
 import {Header} from "./components/Header.jsx";
 import React from "react";
+import {Layout} from "./components/Layout.jsx";
+import {Footer} from "./components/Footer.jsx";
 
-
+//
+// const router = createBrowserRouter([
+//     {
+//         path: '/', element: (
+//             <>
+//                 <Header/>
+//                 <Home/>
+//                 <Footer/>
+//             </>
+//         )
+//     },
+//     {
+//         path: 'about', element: (
+//             <>
+//                 <Header/>
+//                 <About/>
+//                 <Footer/>
+//             </>
+//         )
+//     },
+//     {
+//         path: 'card', element: (
+//             <>
+//                 <Header/>
+//                 <Card/>
+//                 <Footer/>
+//             </>
+//         )
+//     },
+//     {
+//         path: 'categories', element: (
+//             <>
+//                 <Header/>
+//                 <Categories/>
+//                 <Footer/>
+//             </>
+//         )
+//     },
+//     {
+//         path: 'product', element: (
+//             <>
+//                 <Header/>
+//                 <ProductDetails/>
+//                 <Footer/>
+//             </>
+//         )
+//     }
+//     {
+//         path: '*', element: (
+//             <>
+//                 <Header/>
+//                 <NotFound/>
+//                 <Footer/>
+//             </>
+//         )
+//     }
+// ])
 
 const router = createBrowserRouter([
-    {path: '/', element: (
-        <>
-            <Header/>
-            <Home/>
-        </>
-            )
-           },
-    {path: 'about', element: (
-        <>
-            <Header/>
-            <About/>
-        </>
-            )
-           },
-    {path: 'card', element: (
-        <>
-            <Header/>
-            <Card/>
-        </>
-            )
-           },
-    {path: 'categories', element: (
-        <>
-            <Header/>
-            <Categories/>
-        </>
-            )
-           },
-    {path: '*', element: (
-        <>
-            <Header/>
-            <NotFound/>
-        </>
-            )
-           },
-    {path: 'product', element: (
-        <>
-            <Header/>
-            <ProductDetails/>
-        </>
-            )
-        }
+    {
+        path: '/',
+        element: <Layout/>,
+        children: [
+            {path: '', element: <Home/>},
+            {path: 'about', element: <About/>},
+            {path: 'card', element: <Card/>},
+            {path: 'categories', element: <Categories/>},
+            {path: 'product', element: <ProductDetails/>},
+            {path: '*', element: <NotFound/>},
+        ]
+
+    }
 ])
 
 function App() {
