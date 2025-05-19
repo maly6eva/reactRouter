@@ -1,19 +1,31 @@
 import React from 'react';
 import {products} from "../data/data";
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useSearchParams} from "react-router-dom";
 
 export const Category = () => {
     const {categoryId} = useParams()
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const maxPrice = searchParams.get('maxPrice') ? Number( searchParams.get('maxPrice')) : Infinity
 
     const currentCategoryArray = products.filter((product) =>
-    product.categoryId === categoryId)
+    product.categoryId === categoryId && product.price <= maxPrice)
 
-    console.log(currentCategoryArray )
+   function handleChange(e) {
+        const value = e.target.value
+       setSearchParams(value ? { maxPrice: value} : {})
+   }
     return (
         <div>
-            {currentCategoryArray.length > 0 ? (
                 <>
                     <h1>Category {categoryId}</h1>
+                    <label htmlFor="maxPrice"></label>
+                    <input
+                        type='number'
+                        id='maxPrice'
+                        value={searchParams.get('maxPrice') || ''}
+                        onChange={handleChange}
+                    />
                     <ul style={{display: 'flex'}}>
                         {currentCategoryArray.map((product) => (
                             <li key={product.name}>
@@ -24,9 +36,7 @@ export const Category = () => {
                             </li>
                         ))}
                     </ul>
-                </> ) : (<p>Not Prod</p>
-            )}
-
+                </>
         </div>
     );
 };

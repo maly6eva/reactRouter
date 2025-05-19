@@ -5,10 +5,9 @@ import {Card} from "./pages/Card.jsx";
 import {Category} from "./pages/Category.jsx";
 import {NotFound} from "./pages/NotFound.jsx";
 import {ProductDetails} from "./pages/ProductDetails.jsx";
-import {Header} from "./components/Header.jsx";
 import React from "react";
 import {Layout} from "./components/Layout.jsx";
-import {Footer} from "./components/Footer.jsx";
+
 
 //
 // const router = createBrowserRouter([
