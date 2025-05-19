@@ -2,7 +2,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {Home} from "./pages/Home.jsx";
 import {About} from "./pages/About.jsx";
 import {Card} from "./pages/Card.jsx";
-import {Categories} from "./pages/Categories.jsx";
+import {Category} from "./pages/Category.jsx";
 import {NotFound} from "./pages/NotFound.jsx";
 import {ProductDetails} from "./pages/ProductDetails.jsx";
 import {Header} from "./components/Header.jsx";
@@ -76,8 +76,8 @@ const router = createBrowserRouter([
             {index: true, element: <Home/>},
             {path: 'about', element: <About/>},
             {path: 'card', element: <Card/>},
-            {path: 'categories', element: <Categories/>},
-            {path: 'product', element: <ProductDetails/>},
+            {path: 'category/:categoryId', element: <Category/>},
+            {path: 'product/:productId', element: <ProductDetails/>},
             {path: '*', element: <NotFound/>},
         ]
 
