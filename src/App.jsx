@@ -7,6 +7,7 @@ import {NotFound} from "./pages/NotFound.jsx";
 import {ProductDetails} from "./pages/ProductDetails.jsx";
 import React from "react";
 import {Layout} from "./components/Layout.jsx";
+import {Thanks} from "./pages/Thanks.jsx";
 
 
 //
@@ -75,6 +76,7 @@ const router = createBrowserRouter([
             {index: true, element: <Home/>},
             {path: 'about', element: <About/>},
             {path: 'card', element: <Card/>},
+            {path: 'thanks', element: <Thanks/>},
             {path: 'category/:categoryId', element: <Category/>},
             {path: 'product/:productId', element: <ProductDetails/>},
             {path: '*', element: <NotFound/>},
