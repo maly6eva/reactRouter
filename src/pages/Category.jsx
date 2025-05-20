@@ -14,33 +14,34 @@ export const Category = () => {
     const maxPrice = location.state.maxPrice;
 
     const currentCategoryArray = products.filter((product) =>
-    product.categoryId === categoryId && product.price <= maxPrice)
+        product.categoryId === categoryId && product.price <= maxPrice)
 
-   function handleChange(e) {
+    function handleChange(e) {
         const value = e.target.value
-       setSearchParams(value ? { maxPrice: value} : {})
-   }
+        setSearchParams(value ? {maxPrice: value} : {})
+    }
+
     return (
         <div>
-                    <h1>
-                        Category {categoryId}</h1>
-                    <label htmlFor="maxPrice"></label>
-                    <input
-                        type='number'
-                        id='maxPrice'
-                        value={searchParams.get('maxPrice') || ''}
-                        onChange={handleChange}
-                    />
-                    <ul style={{display: 'flex'}}>
-                        {currentCategoryArray.map((product) => (
-                            <li key={product.name}>
-                                <Link to={`/product/${product.id}`}>
-                                    {product.name} {product.price}$
-                                    <img src={product.img} alt={product.name} style={{width: '150px'}}/>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+            <h1>
+                Category {categoryId}</h1>
+            <label htmlFor="maxPrice"></label>
+            <input
+                type='number'
+                id='maxPrice'
+                value={searchParams.get('maxPrice') || ''}
+                onChange={handleChange}
+            />
+            <ul style={{display: 'flex'}}>
+                {currentCategoryArray.map((product) => (
+                    <li key={product.name}>
+                        <Link to={`/product/${product.id}`}>
+                            {product.name} {product.price}$
+                            <img src={product.img} alt={product.name} style={{width: '150px'}}/>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };
