@@ -1,4 +1,4 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import {Home} from "./pages/Home.jsx";
 import {About} from "./pages/About.jsx";
 import {Card} from "./pages/Card.jsx";
@@ -74,12 +74,14 @@ const router = createBrowserRouter([
         element: <Layout/>,
         children: [
             {index: true, element: <Home/>},
+            {path: 'old-home', element: <Navigate to='/'/>},
             {path: 'about', element: <About/>},
             {path: 'card', element: <Card/>},
             {path: 'thanks', element: <Thanks/>},
             {path: 'category/:categoryId', element: <Category/>},
             {path: 'product/:productId', element: <ProductDetails/>},
-            {path: '*', element: <NotFound/>},
+            // {path: '*', element: <NotFound/>},
+            {path: '*', element: <Navigate to='/'/>},
         ]
 
     }
