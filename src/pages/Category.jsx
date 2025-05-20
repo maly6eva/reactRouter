@@ -10,7 +10,6 @@ export const Category = () => {
     console.log(location)
 
     // const maxPrice = searchParams.get('maxPrice') ? Number( searchParams.get('maxPrice')) : Infinity
-
     const maxPrice = location.state.maxPrice;
 
     const currentCategoryArray = products.filter((product) =>
